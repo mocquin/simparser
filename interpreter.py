@@ -1,6 +1,9 @@
-from .lexer import *
-from .parser import *
+###############################################################################
+from lexer import *
+from parser import *
 
+
+from collections import Counter
 
 class Interpreter:
     def __init__(self, tree):
