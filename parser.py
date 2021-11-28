@@ -1,4 +1,4 @@
-from .lexer import *
+from lexer import *
 
 @dataclass
 class DimensionNode:
