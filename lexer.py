@@ -1,7 +1,7 @@
 from enum import Enum
 import ast
 from dataclasses import dataclass
-from physipy import Dimension
+from dimension import BasicDimension
 
 class TokenType(Enum):
     """
@@ -115,7 +115,7 @@ class Lexer():
         #return Token(TokenType.DIMENSION,
         #             dim)
         return Token(TokenType.DIMENSION, 
-                    dimension_str)
+                    BasicDimension(dimension_str))
     
     
 if __name__ == "__main__":

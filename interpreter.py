@@ -59,7 +59,7 @@ class Interpreter:
 
     def visit_DivideNode(self, node):
         try:
-            return Number(self.visit(node.node_a).value / self.visit(node.node_b).value)
+            return DimensionNode(self.visit(node.node_a).value / self.visit(node.node_b).value)
         except:
             raise Exception("Runtime math error")
             
@@ -79,16 +79,20 @@ if __name__ == '__main__':
     
 
 
-    text = "T**2.0"#*L**3*T"#/(L**2*M)"
+    text = "T**2.0*L**3*T/(L**2*M)"
+    print(text)
     lexer = Lexer(text)
     lexed = list(lexer.generate_tokens())
-    print(lexed)
+ #   print(lexed)
     parser = Parser(lexed)
     tree = parser.parse()
-    print(tree)
+#    print(tree)
 
-    print("####INTERPRETER")
+  #  print("####INTERPRETER")
     interpreter = Interpreter(tree)
     res = interpreter.parse_tree()
-    print(type(res), res)
-    res.value
+   # print(type(res), res)
+    print(res)
+    print(dict(res.value.counter))
+    from physipy import Dimension
+    print(Dimension(dict(res.value.counter)))
