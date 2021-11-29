@@ -36,6 +36,9 @@ class Interpreter:
         #else:
         #    raise ValueError(f"for {node}")
     
+    def visit_MinusNode(self, node):
+        # value is probably a number so returning a number
+        return NumberNode(-node.node.value)
     
     def visit_AddNode(self, node):
         return Number(self.visit(node.node_a).value + self.visit(node.node_b).value)
