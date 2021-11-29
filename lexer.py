@@ -54,6 +54,9 @@ class Lexer():
                 #self.advance()
                 #yield Token(TokenType.MULTIPLY)
                 yield self.generate_mulpow()
+            elif self.current_char == "^":
+                self.advance()
+                yield Token(TokenType.POW)
             elif self.current_char == "/":
                 self.advance()
                 yield Token(TokenType.DIVIDE)
